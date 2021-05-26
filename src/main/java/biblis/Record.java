@@ -4,14 +4,14 @@ import java.util.Date;
 import java.util.Objects;
 
 public class Record {
-    private String recordID;
+    private int recordID;
     private String recordTitle;
-    private String createdDate;
+    private Date createdDate;
     private String author;
     private String editor;
     private String pitch;
 
-    public Record(String recordID, String recordTitle, String createdDate, String author, String editor, String pitch) {
+    public Record(int recordID, String recordTitle, Date createdDate, String author, String editor, String pitch) {
         this.recordID = recordID;
         this.recordTitle = recordTitle;
         this.createdDate = createdDate;
@@ -20,11 +20,11 @@ public class Record {
         this.pitch = pitch;
     }
 
-    public String getRecordID() {
+    public int getRecordID() {
         return recordID;
     }
 
-    public void setRecordID(String recordID) {
+    public void setRecordID(int recordID) {
         this.recordID = recordID;
     }
 
@@ -36,11 +36,11 @@ public class Record {
         this.recordTitle = recordTitle;
     }
 
-    public String getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(String createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 
