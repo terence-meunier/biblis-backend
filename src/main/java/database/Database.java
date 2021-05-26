@@ -32,6 +32,14 @@ public class Database {
         return connector;
     }
 
+    public static PreparedStatement prepared(String query, boolean returnGeneratedKeys, Object... objects) throws SQLException {
+        PreparedStatement preparedStatement = getDB().prepareStatement(query, returnGeneratedKeys ? Statement.RETURN_GENERATED_KEYS : Statement.NO_GENERATED_KEYS);
+        for (int i=0; i< objects.length; i++) {
+            preparedStatement.setObject(i+1, objects[i]);
+        }
+        return preparedStatement;
+    }
+
     public static ResultSet query(String query) throws SQLException {
         statement = getDB().createStatement();
         return statement.executeQuery(query);
