@@ -5,8 +5,8 @@ import java.util.Date;
 public interface MenuInterface {
     String readAllRecords();
     String findRecord(String recordId);
-    boolean createRecord(int recordId, String recordTitle, Date createdDate, String author, String editor, String pitch);
-    boolean updateRecord(int recordId, String recordTitle, Date createdDate, String author, String editor, String pitch);
-    boolean deleteRecord(int recordId);
+    void createRecord(String title, String author, String editor, String pitch);
+    void updateRecord(String id, String title, String author, String editor, String pitch);
+    boolean deleteRecord(int id);
 }
 

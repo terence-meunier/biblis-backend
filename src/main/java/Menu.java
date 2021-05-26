@@ -2,6 +2,7 @@ import biblis.Record;
 import com.google.gson.Gson;
 import database.RecordDAO;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,15 +26,18 @@ public class Menu implements MenuInterface {
         return gson.toJson(RecordDAO.findById(id));
     }
 
-    public boolean createRecord(int recordId, String recordTitle, Date createdDate, String author, String editor, String pitch) {
-        return true;
+    public void createRecord(String title, String author, String editor, String pitch) {
+        Record record = new Record(0, title, null, author, editor, pitch);
+        RecordDAO.save(record);
     }
 
-    public boolean updateRecord(int recordId, String recordTitle, Date createdDate, String author, String editor, String pitch) {
-        return true;
+    public void updateRecord(String id, String title, String author, String editor, String pitch) {
+        int recordId = Integer.parseInt(id);
+        Record record = new Record(recordId, title, null, author, editor, pitch);
+        RecordDAO.update(record);
     }
 
-    public boolean deleteRecord(int recordId) {
+    public boolean deleteRecord(int id) {
         return true;
     }
 
