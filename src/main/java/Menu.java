@@ -1,5 +1,6 @@
 import biblis.Record;
 import com.google.gson.Gson;
+import database.RecordDAO;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,21 +14,15 @@ public class Menu implements MenuInterface {
     public Menu() {
         gson = new Gson();
         records = new ArrayList<>();
-        records.add(new Record("1", "Mobydick", "2021-05-05", "Eliot Nes", "La baleine", "Une baleine bien venere!"));
-        records.add(new Record("2", "Tic et Tac", "2021-05-05", "Walt Disney", "Disney production", "Des Ecureils plutot nuts"));
     }
 
     public String readAllRecords() {
-        return gson.toJson(records);
+        return gson.toJson(RecordDAO.all());
     }
 
     public String findRecord(String recordId) {
-        for (Record record: records) {
-            if (record.getRecordID().equals(recordId)) {
-                return gson.toJson(record);
-            }
-        }
-        return "";
+        int id = Integer.parseInt(recordId);
+        return gson.toJson(RecordDAO.findById(id));
     }
 
     public boolean createRecord(int recordId, String recordTitle, Date createdDate, String author, String editor, String pitch) {
