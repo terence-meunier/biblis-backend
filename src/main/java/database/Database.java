@@ -3,11 +3,11 @@ package database;
 import java.sql.*;
 
 public class Database {
-    private static String dbName = "dbName";
-    private static String user = "user";
-    private static String pass = "mp";
+    private static String dbName = "biblis";
+    private static String user = "biblis-user";
+    private static String pass = "biblis";
     private static String host = "localhost";
-    private static int port = 3306;
+    private static int port = 3307;
     private static String driver = "mysql";
     private static Connection connector = null;
     private static Statement statement = null;
