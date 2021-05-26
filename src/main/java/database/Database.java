@@ -3,12 +3,12 @@ package database;
 import java.sql.*;
 
 public class Database {
-    private static String dbName = "biblis";
-    private static String user = "biblis-user";
-    private static String pass = "biblis";
-    private static String host = "localhost";
-    private static int port = 3307;
-    private static String driver = "mysql";
+    private static final String dbName = "biblis";
+    private static final String user = "biblis-user";
+    private static final String pass = "biblis";
+    private static final String host = "localhost";
+    private static final int port = 3307;
+    private static final String driver = "mysql";
     private static Connection connector = null;
     private static Statement statement = null;
     private static PreparedStatement preparedStatement = null;
@@ -19,14 +19,14 @@ public class Database {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
             } catch (ClassNotFoundException e) {
-                System.err.println(e);
+                e.printStackTrace();
             }
 
             try {
                 String url = "jdbc:" + driver + "://" + host + ":" + port + "/" + dbName;
                 connector = DriverManager.getConnection(url, user, pass);
             } catch (SQLException e) {
-                System.err.println(e);
+                e.printStackTrace();
             }
         }
         return connector;
@@ -53,7 +53,7 @@ public class Database {
                 result.close();
                 result = null;
             } catch (SQLException e) {
-                System.err.println(e);
+                e.printStackTrace();
             }
         }
 
@@ -63,7 +63,7 @@ public class Database {
                 preparedStatement.close();
                 preparedStatement = null;
             } catch (SQLException e) {
-                System.err.println(e);
+                e.printStackTrace();
             }
         }
 
@@ -73,7 +73,7 @@ public class Database {
                 statement.close();
                 statement = null;
             } catch (SQLException e) {
-                System.err.println(e);
+                e.printStackTrace();
             }
         }
 
@@ -83,7 +83,7 @@ public class Database {
                 connector.close();
                 connector = null;
             } catch (SQLException e) {
-                System.err.println(e);
+                e.printStackTrace();
             }
         }
     }

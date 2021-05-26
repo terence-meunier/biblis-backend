@@ -2,19 +2,12 @@ import biblis.Record;
 import com.google.gson.Gson;
 import database.RecordDAO;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 public class Menu implements MenuInterface {
 
-    private Gson gson;
-    private List<Record> records;
+    private final Gson gson;
 
     public Menu() {
         gson = new Gson();
-        records = new ArrayList<>();
     }
 
     public String readAllRecords() {

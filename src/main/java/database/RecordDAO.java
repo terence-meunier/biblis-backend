@@ -2,11 +2,9 @@ package database;
 
 import biblis.Record;
 
-import javax.xml.crypto.Data;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLType;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +13,7 @@ public class RecordDAO {
 
     // All records
     public static List<Record> all() {
-        ResultSet results = null;
+        ResultSet results;
         List<Record> records = new ArrayList<>();
         try {
             results = Database.query("SELECT * FROM records");
@@ -39,7 +37,7 @@ public class RecordDAO {
     // Find record by id
     public static Record findById(int id) {
         Record record = null;
-        ResultSet result = null;
+        ResultSet result;
         try {
             result = Database.query("SELECT * FROM records WHERE id=" + id);
             while (result.next()) {
